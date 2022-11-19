@@ -1,0 +1,7 @@
+$Scheduler = New-Object -ComObject Schedule.Service
+$Scheduler.Connect()
+$RootFolder = $Scheduler.GetFolder("\")
+$Task = $RootFolder.GetTask("TestTask")
+$Task.NextRunTime
+Test-S3Bucket -BucketName test-files
+#This command returns True if the bucket exists, False otherwise. The command returns True even if the bucket does not belong to the user.
